@@ -16,12 +16,14 @@ This model aims to provide a powerful NLP tool optimized for Catalan, with appli
 
 ## Usage
 The model can be used with the `transformers` library from Hugging Face:
+- [Model link](https://huggingface.co/Marxx01/test_gpt2_catalan)
+
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Load the tokenizer and the model
-model_name = "model_name"
+model_name = "Marxx01/test_gpt2_catalan"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
@@ -51,12 +53,13 @@ Aquest model té com a objectiu proporcionar una eina de processament del llengu
 
 ## Ús
 El model es pot utilitzar mitjançant la biblioteca `transformers` de Hugging Face:
+- [Model link](https://huggingface.co/Marxx01/test_gpt2_catalan)
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Carregar el tokenitzador i el model
-model_name = "nom_del_model"
+model_name = "Marxx01/test_gpt2_catalan"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 

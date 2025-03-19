@@ -16,21 +16,30 @@ This model aims to provide a powerful NLP tool optimized for Catalan, with appli
 
 ## Usage
 The model can be used with the `transformers` library from Hugging Face:
-- [Model link](https://huggingface.co/Marxx01/test_gpt2_catalan)
+- [Model link](https://huggingface.co/Marxx01/gpt2_catalan)
 
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Load the tokenizer and the model
-model_name = "Marxx01/test_gpt2_catalan"
+model_name = "Marxx01/gpt2_catalan"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
 # Generate sample text
 input_text = "El futur de la llengua catalana "
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
-output = model.generate(input_ids, max_length=50)
+outputs = model.generate(
+    **inputs,
+    do_sample = True,
+    max_length=150, 
+    temperature=0.7, 
+    top_p=0.8,  
+    top_k=1000, 
+    no_repeat_ngram_size=2, 
+    num_return_sequences=1
+)
 
 print(tokenizer.decode(output[0], skip_special_tokens=True))
 ```
@@ -53,20 +62,29 @@ Aquest model té com a objectiu proporcionar una eina de processament del llengu
 
 ## Ús
 El model es pot utilitzar mitjançant la biblioteca `transformers` de Hugging Face:
-- [Model link](https://huggingface.co/Marxx01/test_gpt2_catalan)
+- [Model link](https://huggingface.co/Marxx01/gpt2_catalan)
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Carregar el tokenitzador i el model
-model_name = "Marxx01/test_gpt2_catalan"
+model_name = "Marxx01/gpt2_catalan"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
 # Generar text d'exemple
 input_text = "El futur de la llengua catalana "
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
-output = model.generate(input_ids, max_length=50)
+outputs = model.generate(
+    **inputs,
+    do_sample = True,
+    max_length=150, 
+    temperature=0.7, 
+    top_p=0.8,  
+    top_k=1000, 
+    no_repeat_ngram_size=2, 
+    num_return_sequences=1
+)
 
 print(tokenizer.decode(output[0], skip_special_tokens=True))
 ```
